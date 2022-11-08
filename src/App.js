@@ -24,19 +24,29 @@ function App() {
     console.log("deleteWorkout:", deletedWorkout)
   }
 
-  const completeWorkout = (completedWorkout) => {
-  const completedWorkoutMap = workouts.map((workout) => {
-  if(workout === completedWorkout) {
-    const workoutCopy = {...workout}
-    workoutCopy.done = !workoutCopy.done
-    return workoutCopy
-  } else {
-    return workout
-  }
+  // const completeWorkout = (completedWorkout) => {
+  // const completedWorkoutMap = workouts.map((workout) => {
+  // if(workout === completedWorkout) {
+  //   const workoutCopy = {...workout}
+  //   workoutCopy.done = !workoutCopy.done
+  //   return workoutCopy
+  // } else {
+  //   return workout
+  // }
   
+  // })
+  // setWorkouts(completedWorkoutMap)
+
+
+  const completedWorkoutFromMapShort = workouts.map((workout) => {
+    if (workout === targetworkout) {
+  
+      return { ...workout, done: !workout.done };
+    }
+    return workouts
   })
-  setWorkouts(completedWorkoutMap)
- console.log("completeWorkout:", completedWorkout)
+  setWorkouts(completedWorkoutFromMapShort)
+ console.log("completeWorkout:", completedWorkoutFromMapShort)
 }
 
   return (
